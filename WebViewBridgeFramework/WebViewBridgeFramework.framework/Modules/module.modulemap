@@ -1,0 +1,11 @@
+framework module WebViewBridgeFramework {
+  umbrella header "WebViewBridgeFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module WebViewBridgeFramework.Swift {
+    header "WebViewBridgeFramework-Swift.h"
+    requires objc
+}
