@@ -10,13 +10,18 @@ import MobileCoreServices
 import UIKit
 import WebKit
 
+import WebViewBridgeFramework
+
 class ViewController: UIViewController {
     
     private let takeSelfieMsg = "takeSelfie"
+    private let takeSelfieSDKMsg = "takeSelfieSDK"
     private let closeWebViewMsg = "closeWebView"
     
+    private lazy var webViewController = UIViewController()
+    
+    private var webViewBridgeFramework: WebViewBrigeFramework?
     private var webView: WKWebView?
-    private var webViewController = UIViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,7 @@ class ViewController: UIViewController {
         guard let webView = webView, let resourceUrl = Bundle.main.resourceURL else { return }
         
         webView.configuration.userContentController.add(self, name: takeSelfieMsg)
+        webView.configuration.userContentController.add(self, name: takeSelfieSDKMsg)
         webView.configuration.userContentController.add(self, name: closeWebViewMsg)
         
         let bundleUrl = resourceUrl.absoluteURL
@@ -48,6 +54,8 @@ extension ViewController: WKScriptMessageHandler {
             closeWebView()
         case takeSelfieMsg:
             takeSelfie()
+        case takeSelfieSDKMsg:
+            takeSelfieWithSDK()
         default:
             closeWebView()
         }
@@ -75,6 +83,17 @@ extension ViewController: WKScriptMessageHandler {
         webViewController.present(imagePicker, animated: true, completion: nil)
     }
     
+    func takeSelfieWithSDK() {
+        webViewBridgeFramework = WebViewBrigeFramework(delegate: self)
+        
+        guard let webViewBridgeFramework = webViewBridgeFramework,
+            webViewBridgeFramework.showImagePickerOn(webViewController) else {
+            print("framework not working")
+            closeWebView()
+            return
+        }
+    }
+    
     func closeWebView() {
         webViewController.dismiss(animated: true, completion: nil)
     }
@@ -83,5 +102,12 @@ extension ViewController: WKScriptMessageHandler {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("got an image")
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ViewController: WebViewBrigeFrameworkDelegate {
+    func imageReceived(_ image: String) {
+        print(image)
     }
 }

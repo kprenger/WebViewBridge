@@ -23,6 +23,10 @@
                 window.webkit.messageHandlers.takeSelfie.postMessage("take a selfie");
             }
         
+            function takeSelfieSDK() {
+                window.webkit.messageHandlers.takeSelfieSDK.postMessage("take a selfie");
+            }
+        
             function closeWebview() {
                 window.webkit.messageHandlers.closeWebView.postMessage("close webview");
             }
@@ -35,6 +39,10 @@
         <br />
         <div class="content">
             <button class="button" onclick="takeSelfie()">Take a Selfie</button>
+            <br />
+            <br />
+            <br />
+            <button class="button" onclick="takeSelfieSDK()">Take a Selfie using the SDK</button>
             <br />
             <br />
             <br />
