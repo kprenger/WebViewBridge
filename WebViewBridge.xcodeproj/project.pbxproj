@@ -12,6 +12,7 @@
 		3CE4D4D02149663800F46093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE4D4CE2149663800F46093 /* Main.storyboard */; };
 		3CE4D4D22149663900F46093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE4D4D12149663900F46093 /* Assets.xcassets */; };
 		3CE4D4D52149663900F46093 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE4D4D32149663900F46093 /* LaunchScreen.storyboard */; };
+		3CE4D4DD214979DD00F46093 /* webpage.html in Resources */ = {isa = PBXBuildFile; fileRef = 3CE4D4DC214979DD00F46093 /* webpage.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3CE4D4D12149663900F46093 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CE4D4D42149663900F46093 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CE4D4D62149663900F46093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CE4D4DC214979DD00F46093 /* webpage.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = webpage.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				3CE4D4D12149663900F46093 /* Assets.xcassets */,
 				3CE4D4D32149663900F46093 /* LaunchScreen.storyboard */,
 				3CE4D4D62149663900F46093 /* Info.plist */,
+				3CE4D4DC214979DD00F46093 /* webpage.html */,
 			);
 			path = WebViewBridge;
 			sourceTree = "<group>";
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CE4D4DD214979DD00F46093 /* webpage.html in Resources */,
 				3CE4D4D52149663900F46093 /* LaunchScreen.storyboard in Resources */,
 				3CE4D4D22149663900F46093 /* Assets.xcassets in Resources */,
 				3CE4D4D02149663800F46093 /* Main.storyboard in Resources */,
